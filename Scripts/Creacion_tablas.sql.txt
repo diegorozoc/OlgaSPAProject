@@ -1,0 +1,63 @@
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+------------------------------------------------------------------
+
+CREATE TABLE [dbo].[Customers](
+	[id_customer] [bigint] IDENTITY(1,1) NOT NULL,
+	[first_name_customer] [varchar](50) NOT NULL,
+	[last_name_customer] [varchar](50) NULL,
+	[email] [varchar](60) NULL,
+	[address] [varchar](100) NULL,
+	[contact_number1] [varchar](24) NULL,
+	[contact_number2] [varchar](24) NULL,
+	[country] [varchar](15) NULL,
+	[city] [varchar](15) NULL,
+	[registration_date] [datetime] NOT NULL,
+	[modification_date] [datetime] NULL,
+	CONSTRAINT PK_id_customer PRIMARY KEY CLUSTERED (id_customer)
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[Treatments](
+	[id_treatment] [int] IDENTITY(1,1) NOT NULL,
+	[description_treatment] [varchar](50) NOT NULL
+	CONSTRAINT PK_id_treatment PRIMARY KEY CLUSTERED (id_treatment)
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[Packages](
+	[id_package] [bigint] IDENTITY(1,1) NOT NULL,
+	[description_package] [varchar](100) NOT NULL,
+	[suggested_cost] [numeric](18,2) NOT NULL,
+	[Sessions] [int] NOT NULL,
+	CONSTRAINT PK_id_package PRIMARY KEY CLUSTERED (id_package)
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[Appoinments](
+	[id_appointment] [bigint] IDENTITY(1,1) NOT NULL,
+	[id_customer] [bigint] NOT NULL,
+	[id_package] [bigint] NULL,
+	[id_treatment] [int] NULL,
+	[startDate_dte_appointment] [datetime] NOT NULL,
+	[endDate_dte_appointment] [datetime] NOT NULL,
+	[description_appoinment] [varchar](max) NULL,
+
+	CONSTRAINT PK_id_appointment PRIMARY KEY CLUSTERED (id_appointment),
+	FOREIGN KEY (id_customer) REFERENCES Customers(id_customer),
+	FOREIGN KEY (id_treatment) REFERENCES Treatments(id_treatment),
+	FOREIGN KEY (id_package) REFERENCES Packages(id_package)
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+
+------------------------------------------------------------------
+SET ANSI_PADDING OFF
+GO
+
+
