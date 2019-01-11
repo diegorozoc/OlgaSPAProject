@@ -1,0 +1,2046 @@
+{
+	"x-generator": "NSwag v12.0.10.0 (NJsonSchema v9.13.11.0 (Newtonsoft.Json v9.0.0.0))",
+	"swagger": "2.0",
+	"info": {
+		"title": "Demo Swagger",
+		"description": "Demostración de documentación de servicios web bajo el estándar Swagger 2.0",
+		"termsOfService": "None",
+		"contact": {
+			"name": "Ministerio de Salud y Protección Social",
+			"url": "https://www.minsalud.gov.co/",
+			"email": "info@minsalud.gov.co"
+		},
+		"version": "v1"
+	},
+	"host": "localhost",
+	"basePath": "/swagger",
+	"schemes": [
+		"http"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"produces": [
+		"application/json"
+	],
+	"paths": {
+		"/api/Account/UserInfo": {
+			"get": {
+				"tags": [
+					"Account"
+				],
+				"operationId": "Account_GetUserInfo",
+				"responses": {
+					"200": {
+						"x-nullable": true,
+						"description": "",
+						"schema": {
+							"$ref": "#/definitions/UserInfoViewModel"
+						}
+					}
+				}
+			}
+		},
+		"/api/Account/Logout": {
+			"post": {
+				"tags": [
+					"Account"
+				],
+				"operationId": "Account_Logout",
+				"responses": {
+					"200": {
+						"x-nullable": true,
+						"description": "",
+						"schema": {
+							"type": "file"
+						}
+					}
+				}
+			}
+		},
+		"/api/Account/ManageInfo": {
+			"get": {
+				"tags": [
+					"Account"
+				],
+				"operationId": "Account_GetManageInfo",
+				"parameters": [
+					{
+						"type": "string",
+						"name": "returnUrl",
+						"in": "query",
+						"required": true,
+						"x-nullable": true
+					},
+					{
+						"type": "boolean",
+						"name": "generateState",
+						"in": "query",
+						"default": false,
+						"x-nullable": false
+					}
+				],
+				"responses": {
+					"200": {
+						"x-nullable": true,
+						"description": "",
+						"schema": {
+							"$ref": "#/definitions/ManageInfoViewModel"
+						}
+					}
+				}
+			}
+		},
+		"/api/Account/ChangePassword": {
+			"post": {
+				"tags": [
+					"Account"
+				],
+				"operationId": "Account_ChangePassword",
+				"parameters": [
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ChangePasswordBindingModel"
+						},
+						"x-nullable": true
+					}
+				],
+				"responses": {
+					"200": {
+						"x-nullable": true,
+						"description": "",
+						"schema": {
+							"type": "file"
+						}
+					}
+				}
+			}
+		},
+		"/api/Account/SetPassword": {
+			"post": {
+				"tags": [
+					"Account"
+				],
+				"operationId": "Account_SetPassword",
+				"parameters": [
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/SetPasswordBindingModel"
+						},
+						"x-nullable": true
+					}
+				],
+				"responses": {
+					"200": {
+						"x-nullable": true,
+						"description": "",
+						"schema": {
+							"type": "file"
+						}
+					}
+				}
+			}
+		},
+		"/api/Account/AddExternalLogin": {
+			"post": {
+				"tags": [
+					"Account"
+				],
+				"operationId": "Account_AddExternalLogin",
+				"parameters": [
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/AddExternalLoginBindingModel"
+						},
+						"x-nullable": true
+					}
+				],
+				"responses": {
+					"200": {
+						"x-nullable": true,
+						"description": "",
+						"schema": {
+							"type": "file"
+						}
+					}
+				}
+			}
+		},
+		"/api/Account/RemoveLogin": {
+			"post": {
+				"tags": [
+					"Account"
+				],
+				"operationId": "Account_RemoveLogin",
+				"parameters": [
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/RemoveLoginBindingModel"
+						},
+						"x-nullable": true
+					}
+				],
+				"responses": {
+					"200": {
+						"x-nullable": true,
+						"description": "",
+						"schema": {
+							"type": "file"
+						}
+					}
+				}
+			}
+		},
+		"/api/Account/ExternalLogin": {
+			"get": {
+				"tags": [
+					"Account"
+				],
+				"operationId": "Account_GetExternalLogin",
+				"parameters": [
+					{
+						"type": "string",
+						"name": "provider",
+						"in": "query",
+						"required": true,
+						"x-nullable": true
+					},
+					{
+						"type": "string",
+						"name": "error",
+						"in": "query",
+						"x-nullable": true
+					}
+				],
+				"responses": {
+					"200": {
+						"x-nullable": true,
+						"description": "",
+						"schema": {
+							"type": "file"
+						}
+					}
+				}
+			}
+		},
+		"/api/Account/ExternalLogins": {
+			"get": {
+				"tags": [
+					"Account"
+				],
+				"operationId": "Account_GetExternalLogins",
+				"parameters": [
+					{
+						"type": "string",
+						"name": "returnUrl",
+						"in": "query",
+						"required": true,
+						"x-nullable": true
+					},
+					{
+						"type": "boolean",
+						"name": "generateState",
+						"in": "query",
+						"default": false,
+						"x-nullable": false
+					}
+				],
+				"responses": {
+					"200": {
+						"x-nullable": true,
+						"description": "",
+						"schema": {
+							"type": "array",
+							"xml": {
+								"name": "ArrayOfExternalLoginViewModel",
+								"wrapped": true
+							},
+							"items": {
+								"xml": {
+									"name": "ExternalLoginViewModel"
+								},
+								"allOf": [
+									{
+										"$ref": "#/definitions/ExternalLoginViewModel"
+									}
+								]
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/Account/Register": {
+			"post": {
+				"tags": [
+					"Account"
+				],
+				"operationId": "Account_Register",
+				"parameters": [
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/RegisterBindingModel"
+						},
+						"x-nullable": true
+					}
+				],
+				"responses": {
+					"200": {
+						"x-nullable": true,
+						"description": "",
+						"schema": {
+							"type": "file"
+						}
+					}
+				}
+			}
+		},
+		"/api/Account/RegisterExternal": {
+			"post": {
+				"tags": [
+					"Account"
+				],
+				"operationId": "Account_RegisterExternal",
+				"parameters": [
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/RegisterExternalBindingModel"
+						},
+						"x-nullable": true
+					}
+				],
+				"responses": {
+					"200": {
+						"x-nullable": true,
+						"description": "",
+						"schema": {
+							"type": "file"
+						}
+					}
+				}
+			}
+		},
+		"/api/ARL/DatosEmpleador": {
+			"get": {
+				"tags": [
+					"ARL"
+				],
+				"summary": "Obtener los datos del empleador",
+				"operationId": "ARL_GetDatosEmpleador",
+				"responses": {
+					"200": {
+						"x-nullable": true,
+						"description": "",
+						"schema": {
+							"$ref": "#/definitions/DatosEmpleadorViewModel"
+						}
+					}
+				}
+			}
+		},
+		"/api/ARL/DatosAfiliado/{id}": {
+			"get": {
+				"tags": [
+					"ARL"
+				],
+				"summary": "Obtiene los datos básicos de un afiliado.",
+				"description": "&gt;El servicio devuelve el conjunto de datos básicos de un afiliado filtrado por el identificador.",
+				"operationId": "ARL_GetDatosAfiliado",
+				"parameters": [
+					{
+						"type": "integer",
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"description": "Identificador del afiliado",
+						"format": "int32",
+						"x-nullable": false
+					}
+				],
+				"responses": {
+					"200": {
+						"x-nullable": true,
+						"description": "Conjunto de datos básicos del afiliado",
+						"schema": {
+							"type": "array",
+							"xml": {
+								"name": "ArrayOfint",
+								"wrapped": true
+							},
+							"items": {
+								"type": "integer",
+								"format": "int32",
+								"xml": {
+									"name": "int"
+								}
+							}
+						}
+					},
+					"404": {
+						"x-nullable": true,
+						"description": "",
+						"schema": {
+							"$ref": "#/definitions/NotFoundResult"
+						}
+					}
+				}
+			}
+		},
+		"/api/ARL/DatosAfiliado": {
+			"post": {
+				"tags": [
+					"ARL"
+				],
+				"summary": "Crea un afiliado en el sistema",
+				"description": "Here is a sample remarks placeholder.",
+				"operationId": "ARL_PostDatosAfiliado",
+				"parameters": [
+					{
+						"name": "model",
+						"in": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/DatosAfiliadoBindingModel"
+						},
+						"x-nullable": true
+					}
+				],
+				"responses": {
+					"200": {
+						"x-nullable": true,
+						"description": "Ejecución Correcta",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"404": {
+						"x-nullable": true,
+						"description": "Servicio no encontrado",
+						"schema": {
+							"$ref": "#/definitions/Error404"
+						}
+					},
+					"401": {
+						"x-nullable": true,
+						"description": "No está autorizado para consumir este servicio",
+						"schema": {
+							"$ref": "#/definitions/NotImplementedException"
+						}
+					}
+				}
+			}
+		},
+		"/api/ARL/NovedadesAfiliado/{id}/{paginacion}": {
+			"get": {
+				"tags": [
+					"ARL"
+				],
+				"summary": "Obtiene las novedades de (Inicio / Terminación) Relación Laboral para una ARL",
+				"description": "El servicio devuelve las novedades filtrada por el identificador de la ARL y paginada.",
+				"operationId": "ARL_GetNovedadesAfiliado",
+				"parameters": [
+					{
+						"type": "integer",
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"description": "Identificador de la ARL",
+						"format": "int32",
+						"x-nullable": false
+					},
+					{
+						"type": "integer",
+						"name": "paginacion",
+						"in": "path",
+						"required": true,
+						"description": "Número de registros que retornará el servicio",
+						"format": "int32",
+						"x-nullable": false
+					}
+				],
+				"responses": {
+					"200": {
+						"x-nullable": true,
+						"description": "Lista de novedades a ser notificadas a la ARL",
+						"schema": {
+							"$ref": "#/definitions/NovedadesAfiliadosViewModel"
+						}
+					}
+				}
+			}
+		},
+		"/api/Values/Get": {
+			"get": {
+				"tags": [
+					"Values"
+				],
+				"operationId": "Values_GetAll",
+				"responses": {
+					"200": {
+						"x-nullable": true,
+						"description": "",
+						"schema": {
+							"type": "array",
+							"xml": {
+								"name": "ArrayOfstring",
+								"wrapped": true
+							},
+							"items": {
+								"type": "string",
+								"xml": {
+									"name": "string"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/Values/Get/{id}": {
+			"get": {
+				"tags": [
+					"Values"
+				],
+				"operationId": "Values_Get",
+				"parameters": [
+					{
+						"type": "integer",
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"format": "int32",
+						"x-nullable": false
+					}
+				],
+				"responses": {
+					"200": {
+						"x-nullable": true,
+						"description": "",
+						"schema": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		},
+		"/api/Values/Post": {
+			"post": {
+				"tags": [
+					"Values"
+				],
+				"operationId": "Values_Post",
+				"parameters": [
+					{
+						"name": "value",
+						"in": "body",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"x-nullable": true
+					}
+				],
+				"responses": {
+					"204": {
+						"description": ""
+					}
+				}
+			}
+		},
+		"/api/Values/Put/{id}": {
+			"put": {
+				"tags": [
+					"Values"
+				],
+				"operationId": "Values_Put",
+				"parameters": [
+					{
+						"type": "integer",
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"format": "int32",
+						"x-nullable": false
+					},
+					{
+						"name": "value",
+						"in": "body",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"x-nullable": true
+					}
+				],
+				"responses": {
+					"204": {
+						"description": ""
+					}
+				}
+			}
+		},
+		"/api/Values/Delete/{id}": {
+			"delete": {
+				"tags": [
+					"Values"
+				],
+				"operationId": "Values_Delete",
+				"parameters": [
+					{
+						"type": "integer",
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"format": "int32",
+						"x-nullable": false
+					}
+				],
+				"responses": {
+					"204": {
+						"description": ""
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"UserInfoViewModel": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"hasRegistered"
+			],
+			"properties": {
+				"email": {
+					"type": "string"
+				},
+				"hasRegistered": {
+					"type": "boolean"
+				},
+				"loginProvider": {
+					"type": "string"
+				}
+			}
+		},
+		"ManageInfoViewModel": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"localLoginProvider": {
+					"type": "string"
+				},
+				"email": {
+					"type": "string"
+				},
+				"logins": {
+					"type": "array",
+					"xml": {
+						"wrapped": true
+					},
+					"items": {
+						"xml": {
+							"name": "UserLoginInfoViewModel"
+						},
+						"allOf": [
+							{
+								"$ref": "#/definitions/UserLoginInfoViewModel"
+							}
+						]
+					}
+				},
+				"externalLoginProviders": {
+					"type": "array",
+					"xml": {
+						"wrapped": true
+					},
+					"items": {
+						"xml": {
+							"name": "ExternalLoginViewModel"
+						},
+						"allOf": [
+							{
+								"$ref": "#/definitions/ExternalLoginViewModel"
+							}
+						]
+					}
+				}
+			}
+		},
+		"UserLoginInfoViewModel": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"loginProvider": {
+					"type": "string"
+				},
+				"providerKey": {
+					"type": "string"
+				}
+			}
+		},
+		"ExternalLoginViewModel": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"url": {
+					"type": "string"
+				},
+				"state": {
+					"type": "string"
+				}
+			}
+		},
+		"ChangePasswordBindingModel": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"oldPassword",
+				"newPassword"
+			],
+			"properties": {
+				"oldPassword": {
+					"title": "Current password",
+					"type": "string",
+					"minLength": 1
+				},
+				"newPassword": {
+					"title": "New password",
+					"type": "string",
+					"maxLength": 100,
+					"minLength": 6
+				},
+				"confirmPassword": {
+					"title": "Confirm new password",
+					"type": "string"
+				}
+			}
+		},
+		"SetPasswordBindingModel": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"newPassword"
+			],
+			"properties": {
+				"newPassword": {
+					"title": "New password",
+					"type": "string",
+					"maxLength": 100,
+					"minLength": 6
+				},
+				"confirmPassword": {
+					"title": "Confirm new password",
+					"type": "string"
+				}
+			}
+		},
+		"AddExternalLoginBindingModel": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"externalAccessToken"
+			],
+			"properties": {
+				"externalAccessToken": {
+					"title": "External access token",
+					"type": "string",
+					"minLength": 1
+				}
+			}
+		},
+		"RemoveLoginBindingModel": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"loginProvider",
+				"providerKey"
+			],
+			"properties": {
+				"loginProvider": {
+					"title": "Login provider",
+					"type": "string",
+					"minLength": 1
+				},
+				"providerKey": {
+					"title": "Provider key",
+					"type": "string",
+					"minLength": 1
+				}
+			}
+		},
+		"RegisterBindingModel": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"email",
+				"password"
+			],
+			"properties": {
+				"email": {
+					"title": "Email",
+					"type": "string",
+					"minLength": 1
+				},
+				"password": {
+					"title": "Password",
+					"type": "string",
+					"maxLength": 100,
+					"minLength": 6
+				},
+				"confirmPassword": {
+					"title": "Confirm password",
+					"type": "string"
+				}
+			}
+		},
+		"RegisterExternalBindingModel": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"email"
+			],
+			"properties": {
+				"email": {
+					"title": "Email",
+					"type": "string",
+					"minLength": 1
+				}
+			}
+		},
+		"DatosEmpleadorViewModel": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"tipoIdentificacion": {
+					"type": "string"
+				},
+				"numeroIdentificacion": {
+					"type": "string"
+				},
+				"digitoVerificacion": {
+					"type": "string"
+				},
+				"razonSocial": {
+					"type": "string"
+				}
+			}
+		},
+		"NotFoundResult": {
+			"type": "object",
+			"description": "Represents an action result that returns an empty NotFound response.",
+			"additionalProperties": false,
+			"properties": {
+				"request": {
+					"description": "Gets the request message which led to this result.",
+					"allOf": [
+						{
+							"$ref": "#/definitions/HttpRequestMessage"
+						}
+					]
+				}
+			}
+		},
+		"HttpRequestMessage": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"version": {
+					"$ref": "#/definitions/Version"
+				},
+				"content": {
+					"$ref": "#/definitions/HttpContent"
+				},
+				"method": {
+					"$ref": "#/definitions/HttpMethod"
+				},
+				"requestUri": {
+					"type": "string",
+					"format": "uri"
+				},
+				"headers": {
+					"$ref": "#/definitions/HttpRequestHeaders"
+				},
+				"properties": {
+					"type": "object",
+					"additionalProperties": {}
+				}
+			}
+		},
+		"Version": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"major",
+				"minor",
+				"build",
+				"revision",
+				"majorRevision",
+				"minorRevision"
+			],
+			"properties": {
+				"major": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"minor": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"build": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"revision": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"majorRevision": {
+					"type": "integer"
+				},
+				"minorRevision": {
+					"type": "integer"
+				}
+			}
+		},
+		"HttpContent": {
+			"type": "object",
+			"x-abstract": true,
+			"additionalProperties": false,
+			"properties": {
+				"headers": {
+					"$ref": "#/definitions/HttpContentHeaders"
+				}
+			}
+		},
+		"HttpContentHeaders": {
+			"allOf": [
+				{
+					"type": "array",
+					"xml": {
+						"name": "ArrayOfKeyValuePair`2",
+						"wrapped": true
+					},
+					"items": {
+						"xml": {
+							"name": "KeyValuePair`2"
+						},
+						"allOf": [
+							{
+								"$ref": "#/definitions/KeyValuePairOfStringAndIEnumerableOfString"
+							}
+						]
+					}
+				},
+				{
+					"type": "object",
+					"additionalProperties": false,
+					"properties": {
+						"allow": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"type": "string",
+								"xml": {
+									"name": "string"
+								}
+							}
+						},
+						"contentDisposition": {
+							"$ref": "#/definitions/ContentDispositionHeaderValue"
+						},
+						"contentEncoding": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"type": "string",
+								"xml": {
+									"name": "string"
+								}
+							}
+						},
+						"contentLanguage": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"type": "string",
+								"xml": {
+									"name": "string"
+								}
+							}
+						},
+						"contentLength": {
+							"type": "integer",
+							"format": "int64"
+						},
+						"contentLocation": {
+							"type": "string",
+							"format": "uri"
+						},
+						"contentMD5": {
+							"type": "string",
+							"format": "byte"
+						},
+						"contentRange": {
+							"$ref": "#/definitions/ContentRangeHeaderValue"
+						},
+						"contentType": {
+							"$ref": "#/definitions/MediaTypeHeaderValue"
+						},
+						"expires": {
+							"type": "string",
+							"format": "date-time"
+						},
+						"lastModified": {
+							"type": "string",
+							"format": "date-time"
+						}
+					}
+				}
+			]
+		},
+		"ContentDispositionHeaderValue": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"dispositionType": {
+					"type": "string"
+				},
+				"parameters": {
+					"type": "array",
+					"xml": {
+						"wrapped": true
+					},
+					"items": {
+						"xml": {
+							"name": "NameValueHeaderValue"
+						},
+						"allOf": [
+							{
+								"$ref": "#/definitions/NameValueHeaderValue"
+							}
+						]
+					}
+				},
+				"name": {
+					"type": "string"
+				},
+				"fileName": {
+					"type": "string"
+				},
+				"fileNameStar": {
+					"type": "string"
+				},
+				"creationDate": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"modificationDate": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"readDate": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"size": {
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"NameValueHeaderValue": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"value": {
+					"type": "string"
+				}
+			}
+		},
+		"ContentRangeHeaderValue": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"hasLength",
+				"hasRange"
+			],
+			"properties": {
+				"unit": {
+					"type": "string"
+				},
+				"from": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"to": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"length": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"hasLength": {
+					"type": "boolean"
+				},
+				"hasRange": {
+					"type": "boolean"
+				}
+			}
+		},
+		"MediaTypeHeaderValue": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"charSet": {
+					"type": "string"
+				},
+				"parameters": {
+					"type": "array",
+					"xml": {
+						"wrapped": true
+					},
+					"items": {
+						"xml": {
+							"name": "NameValueHeaderValue"
+						},
+						"allOf": [
+							{
+								"$ref": "#/definitions/NameValueHeaderValue"
+							}
+						]
+					}
+				},
+				"mediaType": {
+					"type": "string"
+				}
+			}
+		},
+		"KeyValuePairOfStringAndIEnumerableOfString": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"key": {
+					"type": "string"
+				},
+				"value": {
+					"type": "array",
+					"xml": {
+						"wrapped": true
+					},
+					"items": {
+						"type": "string",
+						"xml": {
+							"name": "string"
+						}
+					}
+				}
+			}
+		},
+		"HttpMethod": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"method": {
+					"type": "string"
+				}
+			}
+		},
+		"HttpRequestHeaders": {
+			"allOf": [
+				{
+					"type": "array",
+					"xml": {
+						"name": "ArrayOfKeyValuePair`2",
+						"wrapped": true
+					},
+					"items": {
+						"xml": {
+							"name": "KeyValuePair`2"
+						},
+						"allOf": [
+							{
+								"$ref": "#/definitions/KeyValuePairOfStringAndIEnumerableOfString"
+							}
+						]
+					}
+				},
+				{
+					"type": "object",
+					"additionalProperties": false,
+					"properties": {
+						"accept": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"xml": {
+									"name": "MediaTypeWithQualityHeaderValue"
+								},
+								"allOf": [
+									{
+										"$ref": "#/definitions/MediaTypeWithQualityHeaderValue"
+									}
+								]
+							}
+						},
+						"acceptCharset": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"xml": {
+									"name": "StringWithQualityHeaderValue"
+								},
+								"allOf": [
+									{
+										"$ref": "#/definitions/StringWithQualityHeaderValue"
+									}
+								]
+							}
+						},
+						"acceptEncoding": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"xml": {
+									"name": "StringWithQualityHeaderValue"
+								},
+								"allOf": [
+									{
+										"$ref": "#/definitions/StringWithQualityHeaderValue"
+									}
+								]
+							}
+						},
+						"acceptLanguage": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"xml": {
+									"name": "StringWithQualityHeaderValue"
+								},
+								"allOf": [
+									{
+										"$ref": "#/definitions/StringWithQualityHeaderValue"
+									}
+								]
+							}
+						},
+						"authorization": {
+							"$ref": "#/definitions/AuthenticationHeaderValue"
+						},
+						"expect": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"xml": {
+									"name": "NameValueWithParametersHeaderValue"
+								},
+								"allOf": [
+									{
+										"$ref": "#/definitions/NameValueWithParametersHeaderValue"
+									}
+								]
+							}
+						},
+						"expectContinue": {
+							"type": "boolean"
+						},
+						"from": {
+							"type": "string"
+						},
+						"host": {
+							"type": "string"
+						},
+						"ifMatch": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"xml": {
+									"name": "EntityTagHeaderValue"
+								},
+								"allOf": [
+									{
+										"$ref": "#/definitions/EntityTagHeaderValue"
+									}
+								]
+							}
+						},
+						"ifModifiedSince": {
+							"type": "string",
+							"format": "date-time"
+						},
+						"ifNoneMatch": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"xml": {
+									"name": "EntityTagHeaderValue"
+								},
+								"allOf": [
+									{
+										"$ref": "#/definitions/EntityTagHeaderValue"
+									}
+								]
+							}
+						},
+						"ifRange": {
+							"$ref": "#/definitions/RangeConditionHeaderValue"
+						},
+						"ifUnmodifiedSince": {
+							"type": "string",
+							"format": "date-time"
+						},
+						"maxForwards": {
+							"type": "integer",
+							"format": "int32"
+						},
+						"proxyAuthorization": {
+							"$ref": "#/definitions/AuthenticationHeaderValue"
+						},
+						"range": {
+							"$ref": "#/definitions/RangeHeaderValue"
+						},
+						"referrer": {
+							"type": "string",
+							"format": "uri"
+						},
+						"te": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"xml": {
+									"name": "TransferCodingWithQualityHeaderValue"
+								},
+								"allOf": [
+									{
+										"$ref": "#/definitions/TransferCodingWithQualityHeaderValue"
+									}
+								]
+							}
+						},
+						"userAgent": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"xml": {
+									"name": "ProductInfoHeaderValue"
+								},
+								"allOf": [
+									{
+										"$ref": "#/definitions/ProductInfoHeaderValue"
+									}
+								]
+							}
+						},
+						"cacheControl": {
+							"$ref": "#/definitions/CacheControlHeaderValue"
+						},
+						"connection": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"type": "string",
+								"xml": {
+									"name": "string"
+								}
+							}
+						},
+						"connectionClose": {
+							"type": "boolean"
+						},
+						"date": {
+							"type": "string",
+							"format": "date-time"
+						},
+						"pragma": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"xml": {
+									"name": "NameValueHeaderValue"
+								},
+								"allOf": [
+									{
+										"$ref": "#/definitions/NameValueHeaderValue"
+									}
+								]
+							}
+						},
+						"trailer": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"type": "string",
+								"xml": {
+									"name": "string"
+								}
+							}
+						},
+						"transferEncoding": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"xml": {
+									"name": "TransferCodingHeaderValue"
+								},
+								"allOf": [
+									{
+										"$ref": "#/definitions/TransferCodingHeaderValue"
+									}
+								]
+							}
+						},
+						"transferEncodingChunked": {
+							"type": "boolean"
+						},
+						"upgrade": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"xml": {
+									"name": "ProductHeaderValue"
+								},
+								"allOf": [
+									{
+										"$ref": "#/definitions/ProductHeaderValue"
+									}
+								]
+							}
+						},
+						"via": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"xml": {
+									"name": "ViaHeaderValue"
+								},
+								"allOf": [
+									{
+										"$ref": "#/definitions/ViaHeaderValue"
+									}
+								]
+							}
+						},
+						"warning": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"xml": {
+									"name": "WarningHeaderValue"
+								},
+								"allOf": [
+									{
+										"$ref": "#/definitions/WarningHeaderValue"
+									}
+								]
+							}
+						}
+					}
+				}
+			]
+		},
+		"MediaTypeWithQualityHeaderValue": {
+			"allOf": [
+				{
+					"$ref": "#/definitions/MediaTypeHeaderValue"
+				},
+				{
+					"type": "object",
+					"additionalProperties": false,
+					"properties": {
+						"quality": {
+							"type": "number",
+							"format": "double"
+						}
+					}
+				}
+			]
+		},
+		"StringWithQualityHeaderValue": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"value": {
+					"type": "string"
+				},
+				"quality": {
+					"type": "number",
+					"format": "double"
+				}
+			}
+		},
+		"AuthenticationHeaderValue": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"scheme": {
+					"type": "string"
+				},
+				"parameter": {
+					"type": "string"
+				}
+			}
+		},
+		"NameValueWithParametersHeaderValue": {
+			"allOf": [
+				{
+					"$ref": "#/definitions/NameValueHeaderValue"
+				},
+				{
+					"type": "object",
+					"additionalProperties": false,
+					"properties": {
+						"parameters": {
+							"type": "array",
+							"xml": {
+								"wrapped": true
+							},
+							"items": {
+								"xml": {
+									"name": "NameValueHeaderValue"
+								},
+								"allOf": [
+									{
+										"$ref": "#/definitions/NameValueHeaderValue"
+									}
+								]
+							}
+						}
+					}
+				}
+			]
+		},
+		"EntityTagHeaderValue": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"isWeak"
+			],
+			"properties": {
+				"tag": {
+					"type": "string"
+				},
+				"isWeak": {
+					"type": "boolean"
+				}
+			}
+		},
+		"RangeConditionHeaderValue": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"date": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"entityTag": {
+					"$ref": "#/definitions/EntityTagHeaderValue"
+				}
+			}
+		},
+		"RangeHeaderValue": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"unit": {
+					"type": "string"
+				},
+				"ranges": {
+					"type": "array",
+					"xml": {
+						"wrapped": true
+					},
+					"items": {
+						"xml": {
+							"name": "RangeItemHeaderValue"
+						},
+						"allOf": [
+							{
+								"$ref": "#/definitions/RangeItemHeaderValue"
+							}
+						]
+					}
+				}
+			}
+		},
+		"RangeItemHeaderValue": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"from": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"to": {
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"TransferCodingWithQualityHeaderValue": {
+			"allOf": [
+				{
+					"$ref": "#/definitions/TransferCodingHeaderValue"
+				},
+				{
+					"type": "object",
+					"additionalProperties": false,
+					"properties": {
+						"quality": {
+							"type": "number",
+							"format": "double"
+						}
+					}
+				}
+			]
+		},
+		"TransferCodingHeaderValue": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"value": {
+					"type": "string"
+				},
+				"parameters": {
+					"type": "array",
+					"xml": {
+						"wrapped": true
+					},
+					"items": {
+						"xml": {
+							"name": "NameValueHeaderValue"
+						},
+						"allOf": [
+							{
+								"$ref": "#/definitions/NameValueHeaderValue"
+							}
+						]
+					}
+				}
+			}
+		},
+		"ProductInfoHeaderValue": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"product": {
+					"$ref": "#/definitions/ProductHeaderValue"
+				},
+				"comment": {
+					"type": "string"
+				}
+			}
+		},
+		"ProductHeaderValue": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"version": {
+					"type": "string"
+				}
+			}
+		},
+		"CacheControlHeaderValue": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"noCache",
+				"noStore",
+				"maxStale",
+				"noTransform",
+				"onlyIfCached",
+				"public",
+				"private",
+				"mustRevalidate",
+				"proxyRevalidate"
+			],
+			"properties": {
+				"noCache": {
+					"type": "boolean"
+				},
+				"noCacheHeaders": {
+					"type": "array",
+					"xml": {
+						"wrapped": true
+					},
+					"items": {
+						"type": "string",
+						"xml": {
+							"name": "string"
+						}
+					}
+				},
+				"noStore": {
+					"type": "boolean"
+				},
+				"maxAge": {
+					"type": "string",
+					"format": "time-span"
+				},
+				"sharedMaxAge": {
+					"type": "string",
+					"format": "time-span"
+				},
+				"maxStale": {
+					"type": "boolean"
+				},
+				"maxStaleLimit": {
+					"type": "string",
+					"format": "time-span"
+				},
+				"minFresh": {
+					"type": "string",
+					"format": "time-span"
+				},
+				"noTransform": {
+					"type": "boolean"
+				},
+				"onlyIfCached": {
+					"type": "boolean"
+				},
+				"public": {
+					"type": "boolean"
+				},
+				"private": {
+					"type": "boolean"
+				},
+				"privateHeaders": {
+					"type": "array",
+					"xml": {
+						"wrapped": true
+					},
+					"items": {
+						"type": "string",
+						"xml": {
+							"name": "string"
+						}
+					}
+				},
+				"mustRevalidate": {
+					"type": "boolean"
+				},
+				"proxyRevalidate": {
+					"type": "boolean"
+				},
+				"extensions": {
+					"type": "array",
+					"xml": {
+						"wrapped": true
+					},
+					"items": {
+						"xml": {
+							"name": "NameValueHeaderValue"
+						},
+						"allOf": [
+							{
+								"$ref": "#/definitions/NameValueHeaderValue"
+							}
+						]
+					}
+				}
+			}
+		},
+		"ViaHeaderValue": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"protocolName": {
+					"type": "string"
+				},
+				"protocolVersion": {
+					"type": "string"
+				},
+				"receivedBy": {
+					"type": "string"
+				},
+				"comment": {
+					"type": "string"
+				}
+			}
+		},
+		"WarningHeaderValue": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"code"
+			],
+			"properties": {
+				"code": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"agent": {
+					"type": "string"
+				},
+				"text": {
+					"type": "string"
+				},
+				"date": {
+					"type": "string",
+					"format": "date-time"
+				}
+			}
+		},
+		"Error404": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"status": {
+					"type": "string",
+					"description": "400"
+				},
+				"deprecated": {
+					"type": "string",
+					"description": "Servicio no encontrado"
+				}
+			}
+		},
+		"NotImplementedException": {
+			"allOf": [
+				{
+					"$ref": "#/definitions/SystemException"
+				},
+				{
+					"type": "object",
+					"additionalProperties": false
+				}
+			]
+		},
+		"SystemException": {
+			"allOf": [
+				{
+					"$ref": "#/definitions/Exception"
+				},
+				{
+					"type": "object",
+					"additionalProperties": false
+				}
+			]
+		},
+		"Exception": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"message": {
+					"type": "string"
+				},
+				"innerException": {
+					"$ref": "#/definitions/Exception"
+				},
+				"stackTrace": {
+					"type": "string"
+				},
+				"source": {
+					"type": "string"
+				}
+			}
+		},
+		"DatosAfiliadoBindingModel": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"tipoDocumento",
+				"numeroDocumento",
+				"primerNombre",
+				"primerApellido"
+			],
+			"properties": {
+				"tipoDocumento": {
+					"title": "Tipo de Documento",
+					"type": "string",
+					"minLength": 1
+				},
+				"numeroDocumento": {
+					"title": "Número de Documento",
+					"type": "string",
+					"minLength": 1
+				},
+				"primerNombre": {
+					"title": "Primer Nombre",
+					"type": "string",
+					"maxLength": 25,
+					"minLength": 2
+				},
+				"segundoNombre": {
+					"title": "Segundo Nombre",
+					"type": "string",
+					"maxLength": 25,
+					"minLength": 2
+				},
+				"primerApellido": {
+					"title": "Primer Apellido",
+					"type": "string",
+					"maxLength": 25,
+					"minLength": 2
+				},
+				"segundoApellido": {
+					"title": "Segundo Apellido",
+					"type": "string",
+					"maxLength": 25,
+					"minLength": 2
+				}
+			}
+		},
+		"NovedadesAfiliadosViewModel": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"datosAfiliado": {
+					"$ref": "#/definitions/DatosAfiliadoViewModel"
+				},
+				"relacionLaboral": {
+					"$ref": "#/definitions/InformacionRelacionLaboralViewModel"
+				}
+			}
+		},
+		"DatosAfiliadoViewModel": {
+			"type": "object",
+			"description": "Datos Basicos del Afiliado",
+			"additionalProperties": false,
+			"required": [
+				"tipoDocumento"
+			],
+			"properties": {
+				"tipoDocumento": {
+					"$ref": "#/definitions/TipoDocumentoEnum"
+				},
+				"numeroDocumento": {
+					"type": "string",
+					"description": "Número de Documento del Afiliado"
+				},
+				"primerNombre": {
+					"type": "string",
+					"description": "Primer Nombre del Afiliado"
+				},
+				"segundoNombre": {
+					"type": "string"
+				},
+				"primerApellido": {
+					"type": "string"
+				},
+				"segundoApellido": {
+					"type": "string"
+				}
+			}
+		},
+		"TipoDocumentoEnum": {
+			"type": "string",
+			"description": "Tipo Documento del Afiliado\n            Ejemplo:\n            Cédula de Ciudadania = 423\n            Cédula de Extranjería = 424\n            Pasaporte = 425\n            TarjetaIdentidad = 427",
+			"x-enumNames": [
+				"CedulaCiudadania",
+				"CedulaExtranjeria",
+				"Pasaporte",
+				"TarjetaIdentidad"
+			],
+			"enum": [
+				"CedulaCiudadania",
+				"CedulaExtranjeria",
+				"Pasaporte",
+				"TarjetaIdentidad"
+			]
+		},
+		"InformacionRelacionLaboralViewModel": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"fechaInicioRelacion",
+				"fechaFinRelacion",
+				"valorIBC"
+			],
+			"properties": {
+				"tipoCotizante": {
+					"type": "string"
+				},
+				"fechaInicioRelacion": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"fechaFinRelacion": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"valorIBC": {
+					"type": "number",
+					"format": "decimal"
+				},
+				"codigoSede": {
+					"type": "string"
+				},
+				"codigoCentroTrabajo": {
+					"type": "string"
+				},
+				"codigoClaseRiesgo": {
+					"type": "string"
+				},
+				"codigoCausaAfiliacion": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
